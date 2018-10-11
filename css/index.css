@@ -1,0 +1,92 @@
+body{ width:1200px; margin:0 auto;color: #5c5c5c;}
+
+.button-top-banner-max, .button-top-banner-min, .button-top-banner-close {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    color: #FFF;
+    overflow: hidden;
+}
+
+.sec1 .layout li{float: left;padding: 0 8px;position: relative;line-height: 30px;}
+.shortcut{    content: "";
+    width: 1px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: -1px;
+    background: #e4e4e4;}
+.sec1 .layout a{color: #a4a4a4;}
+.sec1 .layout a:hover{color: #CA141C;}
+
+.b {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ededed;
+    -webkit-box-shadow:  0 2px 6px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+}
+.dropdown-more {
+    width: 144px;
+    padding: 9px 9px 10px 9px;
+    text-align: center;
+    line-height: 32px;
+}
+.dropdown-more .code {
+    padding-top: 11px;
+    color: #717171;
+}
+.download-nav:hover{
+	display: block;
+	border: 1px solid #ededed;
+    -webkit-box-shadow:  0 2px 6px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+}
+.download-nav:hover .b{
+	display: block;
+	border: 1px solid #ededed;
+    -webkit-box-shadow:  0 2px 6px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+}
+
+.splendid:hover .splendid_more{
+	display: block;
+	border: 1px solid #ededed;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+
+}
+.splendid:hover{
+	display: block;
+	
+    border: 1px solid #ededed;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 2px 6px 0 rgba(121,121,121,0.26);
+}
+.splendid_more {	
+	display:none; 
+	position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;      
+}
+.splendid_more div {
+    width: 144px;
+    padding: 9px 9px 0px 9px;
+    text-align: center;
+    line-height: 32px;
+}
+.u-1{
+	float: left;
+}
+.u-2{
+	float: right;
+}
+
+
