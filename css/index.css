@@ -88,5 +88,71 @@ body{ width:1200px; margin:0 auto;color: #5c5c5c;}
 .u-2{
 	float: right;
 }
+.shopingcat-1{
+	content: "";
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
 
-
+//轮播图sec2
+#box{
+	height: 450px;
+	width: 1200px;
+	position: relative;
+	margin: 30px auto;
+	overflow: hidden;
+}
+#box ul{
+		width: 10800px;/*多加一个图片的长度实现无缝轮播*/
+		height: 450px;
+		position: absolute;		
+		left: 0;
+		top: 0;
+}
+#box ul>li{
+	float: left;
+	width: 1200px;
+	height: 450px;
+}
+#box ol{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#box ol>li{
+	margin-right:10px ;
+	height: 30px;
+	line-height: 30px;
+	font-size: 30px;
+	float: left;
+	color: yellow;
+	cursor: pointer;
+}
+#box span{
+	background: rgba(0,0,0,0.4);
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	display: block;
+	top: 50%;
+	color: white;
+	cursor: pointer;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	display: none;
+}
+#span1{
+	left: 10px;
+}
+#span2{
+	right:10px;
+}
+.checked{
+	color: gray;
+}
