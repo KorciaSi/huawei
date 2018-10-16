@@ -14,7 +14,7 @@
 		<script src="jquery.js"></script>
 		<script src="ajax.js"></script>
 		<a href="#">
-			<img src="https://res.vmallres.com/pimages//sale/2018-10/20181009140911510.png" style="float:none;width:1920px;height:90px;" title="企业购" width="1920" height="90" border="0" hspace="0" vspace="0">
+			<img class="img-top" src="https://res.vmallres.com/pimages//sale/2018-10/20181009140911510.png" style="float:none;width:1920px;height:90px;" title="企业购" width="1920" height="90" border="0" hspace="0" vspace="0">
 		</a>
 			<!-- 顶部banner end -->
 		</div>
@@ -171,102 +171,38 @@
 						
 		</div>
 
-	<div id="box">
-		<ul class="u-1">
-			<li><a href="#1" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181008220608528.jpg"/></a></li>
-			<li><a href="#2" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181011234853503.jpg"/></a></li>
-			<li><a href="#3" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181010224520936.jpg"/></a></li>
-			<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180930161805715.png"/></a></li>
-			<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180930164011651.jpg"/></a></li>
-			<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181012094021301.jpg"/></a></li>
-			<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/2018091523085867.png"/></a></li>
-			<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180927203207549.jpg"/></a></li>
-			<li><a href="#1" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181008220608528.jpg"/></a></li>
-		</ul>
-		
-		<ol>
-			<li class="checked"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ol>
-		<span id="span1">&lt;</span>
-		<span id="span2">&gt;</span>
-	</div>
-	
-	<script src="js/startMove.js" ></script>
-	<script type="text/javascript">
-		var box=document.getElementById("box");
-		var ul=document.getElementsByClassName("u-1")[0];
-		var olis=Array.from(box.querySelectorAll("ol>li"));
-		var span1=document.getElementById("span1")
-		var span2=document.getElementById("span2")
-		var now=0;//当前按钮的下标
-		
-		olis.forEach(function(li,index){
-			li.onclick=function(){
-				now=index;
-				tab();
-			}
-		})
-		
-		//内容切换
-		function tab(){
-			olis.forEach(function(li,index){
-				li.className="";
-			})
-			if (now==8) {//计划向第一张图片切换
-				now=0;
-				// 把最早拷贝出来的第一张图片显示出来
-				// 如果走到了目标点，让ul瞬间设为0（最后一张图片实际上和第一张图片是一样的）
-				startMove(ul,{"left":8*-1200},function(){
-					ul.style.left="0px";
-				});
-			}else{
-				startMove(ul,{"left":now*-1200});
-			}
-			olis[now].className="checked";
-		}
-		
-		function next(){
-			now++;
-			tab();
-		}
-		
-		var timer=setInterval(next,3000);
-		
-		box.onmouseover=function(){
-			clearInterval(timer);
-			span1.style.display="block"
-			span2.style.display="block"
-			//左边按钮事件
-			span1.onclick=function(){
-				if (now==0) {
-					now=8;
-				}
-				now--;
-				tab();
-			}
-			
-			//右边按钮事件
-			span2.onclick=function(){
-				now++;
-				tab();
-				
-				
-			}
-		}
-		box.onmouseout=function(){
-			timer=setInterval(next,3000);
-			span1.style.display="none"
-			span2.style.display="none"
-		}
-		
-	</script>
+
+<!--轮播图-->
+		<div id="banner" class="fs_col2">
+			<button id="turnLeft"></button>
+	        <button id="turnRight"></button>
+	        <div id="showImg">
+	            <ul>
+					<li><a href="#1" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181008220608528.jpg"/></a></li>
+					<li><a href="#2" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181011234853503.jpg"/></a></li>
+					<li><a href="#3" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181010224520936.jpg"/></a></li>
+					<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180930161805715.png"/></a></li>
+					<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180930164011651.jpg"/></a></li>
+					<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181012094021301.jpg"/></a></li>
+					<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/2018091523085867.png"/></a></li>
+					<li><a href="#4" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-09/20180927203207549.jpg"/></a></li>
+					<li><a href="#1" target="_blank"><img src="https://res.vmallres.com/pimages//sale/2018-10/20181008220608528.jpg"/></a></li>
+	            </ul>
+	        </div>
+	        
+	        <div id="btnList" class="clearfix">
+		        <button class="bannerActive"></button>
+		        <button></button>
+		        <button></button>
+		        <button></button>
+		        <button></button>
+		        <button></button>
+		        <button></button>
+		        <button></button>
+	        </div>
+	    
+		</div>			
+
 		
 	<!--华为精品-->
 	<div class="sec2 clearfix">
@@ -336,7 +272,25 @@
                     </li>
         </ul>    
 	</div>	
-		
+	<!--楼梯阶梯-->
+	
+	<div class="event-float-layout" style="height: 235px; top: 245px;">
+	    <!--添加 fixed  position: fixed !important;top: 20px;z-index: 500;-->
+	    <div class="event-float">
+	        <div>
+	            <ul class="hover-list">
+	                <!--<li class="hover"><a data-id="0" href="javascript:;">手机</a></li>-->
+	            	<li class="hover"><a data-id="0" href="javascript:;" onclick="pushMsg(&#39;手机&#39;);">手机</a></li>
+	            	<li class=""><a data-id="1" href="javascript:;" onclick="pushMsg(&#39;笔记本电脑&#39;);">笔记本电脑</a></li>
+	            	<li class=""><a data-id="2" href="javascript:;" onclick="pushMsg(&#39;平板&amp;穿戴&#39;);">平板&amp;穿戴</a></li>
+	            	<li class=""><a data-id="3" href="javascript:;" onclick="pushMsg(&#39;智能家居&#39;);">智能家居</a></li>
+	            	<li class=""><a data-id="4" href="javascript:;" onclick="pushMsg(&#39;热销配件&#39;);">热销配件</a></li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>	
+	
+	
 	<!--手机-->	
 	<div class="sec3 clearfix">
 		<p class="p3">手机</p>		
@@ -1053,6 +1007,257 @@
 		</ul>		
 		
 	</div>
+	
+	
+
+<!--瀑布流-->
+	<div id="wrap">
+		<p class="p3">查看更多</p>	
+		<p class="p4"></p>	
+		<ul class="clearfix">
+				
+		</ul>
+	</div>
+	
+	
+<!--footer部分-->	
+
+
+	
+	
+	
+
+
+<!--js和jquery代码部分-->
+	<!--大轮播图-->
+	<script type="text/javascript">
+		function Banner(){}
+        $.extend(Banner.prototype,{
+            init: function(options){
+                this.item_list = $(options.item_list);
+                this.left_btn = $(options.left_btn);
+                this.right_btn = $(options.right_btn);
+                this.btn_list = $(options.btn_list);
+                this.nowIndex = 0;
+                this.item_num = this.item_list.length;
+                this.ul = $("#showImg ul");
+                this.item_width = this.item_list.width();
+                if(this.left_btn.length == 0 && this.right_btn.lenght ==0 && this.btn_list.length == 0){
+                    this.autoPlay();
+                    return 0 ;
+                }
+                this.bindEvent();
+                this.autoPlay();
+            },
+            bindEvent : function(){
+                this.left_btn.click($.proxy(this.prev , this));
+                this.right_btn.click($.proxy(this.next , this));
+                this.btn_list.mouseover($.proxy(this.toIndex , this));
+                this.btn_list.mouseover($.proxy(this.stopPlay , this));
+                this.btn_list.mouseout($.proxy(this.autoPlay , this))
+                this.item_list.mouseover($.proxy(this.stopPlay , this));
+                this.item_list.mouseout($.proxy(this.autoPlay , this))
+            },
+            next:function(){
+                if(this.nowIndex == this.item_num - 1){
+                    this.nowIndex = 1 ;
+                    this.ul.css({
+                        left : 0
+                    })
+                }else{
+                    this.nowIndex ++;
+                }
+                this.animate();
+            },
+            prev:function(){
+                // console.log(this);
+                if( this.nowIndex == 0){
+                    this.nowIndex = this.item_num - 2;
+                    this.ul.css({
+                        left : -(this.item_num - 1) * this.item_width
+                    })
+                }else{
+                    this.nowIndex --;
+                }
+
+                this.animate();
+            },
+            toIndex:function(event){
+                var target = event.target || event.scrElement;
+                this.nowIndex = $(target).index();
+                this.animate();
+            },
+            animate:function(){
+                this.ul.stop().animate({
+                    left : -this.item_width*this.nowIndex
+                })
+                var index = this.nowIndex == this.item_num - 1 ? 0 :this.nowIndex;
+                this.btn_list.eq(index).addClass("bannerActive")
+                .siblings("button").removeClass("bannerActive");
+            },
+            autoPlay : function(){
+                this.autoTimer = setInterval(function(){
+                    this.next();
+                }.bind(this),3000)
+            },
+            stopPlay : function(){
+               clearInterval(this.autoTimer)    
+            }
+        })
+
+        var banner = new Banner();
+
+        banner.init({
+            item_list : "#showImg li",
+            left_btn : "#turnLeft",
+            right_btn : "#turnRight",
+            btn_list : "#btnList button" 
+        })
+	</script>
+
+    <!--瀑布流-->
+	<script>
+        // 1. 显示区域;
+        //  json =字符串拼接> 页面;
+        //  json 来自于哪里 ? 后端;  ajax 请求获取json;
+        
+        // 1.1 加载数据;
+        // 1.2 渲染页面(拼接字符串);
+        
+        // 2. 分页按钮区域;
+        // 2.1 根据条件渲染数据;
+        // 2.2 添加事件; => 重新渲染页面;
+        
+        function Pagination(){
+        }
+        Pagination.prototype.init = function(){
+            // 选择;
+            this.wrap = document.querySelector("#wrap ul");
+            this.clientHeight = document.documentElement.clientHeight;
+            // 一个开关避免高频词进行数据请求;
+            this.loading = false;
+            this.now_page = 0;
+            this.loadJson()
+            .then(function(json){
+                this.data = json;
+                this.total = Math.ceil(json.count / 5);
+                this.renderPage();
+            }.bind(this))
+
+            this.handleEvent() 
+        }
+        // 因为加载数据是异步;
+        // 又因为整个功能没有数据就没正常执行，所以把其余代码要放在数据加载成功的回调函数里; => promise;
+        Pagination.prototype.loadJson = function(){
+            return new Promise(function(success,error){
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET","php/data.json");
+                xhr.send(null);
+                xhr.onload = function(){
+                    if(xhr.status == 200){
+                        // 如果返回值是字符串那么将字符串转换为json;
+                        var json = typeof xhr.response == "string" ?JSON.parse(xhr.response) : xhr.response;
+                        success(json)
+                    }else{
+                        error("请求出错");
+                    }
+                }
+            })
+        }
+        Pagination.prototype.renderPage = function(){
+            // 渲染页面;
+            var list =  this.data.subjects;
+            var html = "";
+            // 起始点和终止点;
+            // 第几页   	范围 	for循环起始点	for循环终止点
+            // 0	        0~3	            0	        3
+            // 1	        4~7	            4	        7
+            // 2	        8~11	        8	        11
+            // 3	        12~15	        12	        15
+            // 4	        16~19	        16	        19
+            // 5	        20~23	        20	        23
+            // 6	        24~27	        24	        27
+            // n	                     4 * n       	4 * n  + 3
+            for(var i = 5 * this.now_page ; i <= 5* this.now_page + 4; i ++){
+                html += `
+                        <li>
+                            <img src="${list[i].images.small}" alt="">
+                            <p>${list[i].title}</p>
+                            <div class="similar">找相似</div>
+                        </li>`
+            }
+            this.wrap.innerHTML += html;
+            this.loading = false;   
+        }
+        Pagination.prototype.handleEvent = function(){
+            onscroll = this.load.bind(this)
+        }
+        Pagination.prototype.load = function(event){
+            if(this.loading) return 0 ;
+
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var showHeight = scrollTop + this.clientHeight;
+            
+           //最后一个元素的高度;
+            var eleChildren = this.wrap.getElementsByTagName("li");
+            var lastChildren = eleChildren[eleChildren.length - 1];
+            var lastTop = lastChildren.offsetTop;
+            // console.log(showHeight,lastTop);
+            // 判断是否该加载数据;
+            if(lastTop <= showHeight){
+                // 加载数据;
+                // 加载过程之中 不重复加载;
+                // console.log("加载数据");
+                this.loading = true;
+                this.now_page ++;  
+
+                if(this.now_page > this.total){
+                    return 0;
+                }
+
+                this.renderPage();
+                // document.documentElement.scrollTop = 0;
+                // console.log(1);
+            }
+
+
+           // 获取 几个值;
+           // 显示的高度;
+           // 最后一张图片的高度;
+
+        }   
+        var pagination = new Pagination();
+        pagination.init();
+
+    </script>
+    
+    
+    <script type="text/javascript">
+    	turn_top.onclick = function(){
+    		var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    		scrollTop = "0"
+    	}
+    </script>
+    
+    
+    <script type="text/javascript">
+    	$(window).scroll(function(){ 
+	        var clientHeight = document.documentElement.clientHeight;
+	        if($(this).scrollTop() > clientHeight){
+	            $(".divSou").stop().animate({
+	                top:0
+	            },200)
+	        }
+	        if($(this).scrollTop() <= clientHeight){
+	            $(".divSou").stop().animate({
+	                top:"-55"
+	            },200)
+	        }
+	    });
+
+    </script>
+    
+
 	
 	</body>
 </html>
