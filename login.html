@@ -25,7 +25,7 @@ a{
 	padding: 28px 85px 0 85px;
 	height: 564px;
 }
-.user_login a{
+#user_login{
 	padding-left: 30px;
 	padding-right: 55px;
 	font-size: 18px;
@@ -33,15 +33,19 @@ a{
 	color: #e91212;
 	border-right: 1px solid #D1D1D1;
 	float: left;
+}
+#user_login a{
+	color: #e91212;
+	
 }	
-.scan_login{
+#scan_login{
 	padding-right: 30px;
 	padding-left: 55px;
 	font-size: 18px;
 	line-height: 18px;
 	float: left;
 }			
-.scan_login:hover a{
+#scan_login:hover a{
 	color: #e91212;	
 }			
 input{
@@ -97,6 +101,34 @@ input{
 .links_end a{
 	color: #007dff;
 }
+
+#box div{
+	display: none;
+}
+#box div.active{
+	display: block;
+}
+#code{
+	position: relative;
+}
+.qrcode{
+	display: block;
+	position: absolute;
+	left: 80px;
+	top: 100px;
+}
+.p1 , .p2{
+	text-align: center;
+}
+.p1 span{
+	color: #007DFF;
+}
+#wenzi{
+	position: absolute;
+	top: 350px;
+}
+
+
 		</style>
 		
 	</head>
@@ -105,7 +137,7 @@ input{
 		<script src="js/javascript.js" type="text/javascript"></script>
 		<script src="jquery.js"></script>
 		<script src="ajax.js"></script>
-		<script type="text/javascript" src="js/huawei_1.js" ></script>
+		
 		
 		<div class="login">
 			<div class="sec1">	
@@ -114,15 +146,15 @@ input{
 			<div class="sec2">	
 	            <section class="clearfix" id="btn_list">
 	                
-	                <div class="user_login current" id="user_login">
+	                <div class="active" id="user_login">
 	                    <a href="#"> 账户登录</a>	                     		                    
 	                </div>
-	                <div class="scan_login" id="scanCode">
+	                <div id="scan_login">
 	                    <a href="#"> 扫码登录</a> 	                    
 	                </div>
 	            </section>
 	            <section  class="clearfix" id="box">                
-	                <div class="login_con">
+	                <div class="login_con active">
 	                    <p class="empty"></p>
 	                    <dt class="con_name">
 	                        <label for=""></label>
@@ -154,10 +186,10 @@ input{
 	
 	                </div>
 	                
-	                <div class="code">
+	                <div class="code" id="code">
 	                    
 						<img class="qrcode " src="https://hwid1.vmall.com/DimensionalCode/getqrWeb?appID=com.huawei.hwidweb&amp;loginChannel=7000700&amp;reqClientType=700&amp;confirmFlag=1&amp;version=13200&amp;_t=1539741703988">                    </li>
-	                    <li>
+	                    <li id="wenzi">
 	                    	<p class="p1">使用<span>华为移动服务APP</span>扫一扫</p>                       
 	                        <p class="p2">若您使用华为手机，请进入“设置”&gt;“华为帐号”扫码登录。</p>
 	                    </li>
@@ -175,49 +207,47 @@ input{
 		</div>
 		
 		
+		<script>
+		var oUl1 = document.getElementById("btn_list")
+		var oLi1 = oUl1.children
+		//console.log(oLi)
+		var oUl2 = document.getElementById("box")
+		var oLi2 = oUl2.children
 		
+		for(var i = 0;i < oLi1.length;i++){
+			oLi1[i].index = i;
+			oLi1[i].onclick = function(){
+				for(var i = 0;i < oLi1.length;i++){
+					oLi1[i].className = "";
+					oLi2[i].className = "";
+				}
 		
+				this.className = "active"
+				oLi2[this.index].className = "active"
+				oLi1[this.index].style.color = "red"
+			}
 		
+		}
 		
+        var oBtn = document.getElementById("btn");
+        var oUser = document.getElementById("username");
+        var oPwd = document.getElementById("pwd");
+        var oHello = document.getElementById("hello");
+        oBtn.onclick = function(){
+            console.log(oUser.value,oPwd.value);
+            var url = "http://localhost/huawei/php/login.php";
+            ajaxPost(url,`username=${oUser.value}&password=${oPwd.value}`)
+            .then(function(res){
+                if(res){
+//              	location.href = "jd.html"
+//              	oHello.innerHTML = oUser.value;
+                	console.log(oHello)
+                }
+            })
+        }		
 		
+		</script>
 		
-		<!--登录login-->
-		<!--<div id="ec_login" class="ol_box" style="visibility: hidden; position: fixed; top: 35px; left: 261px; z-index: 500; width: 500px;">
-			<div class="box-ct">
-				<div class="box-header">
-					<div class="box-tl"></div>
-					<div class="box-tc">
-						<div class="box-tc1"></div>
-						<div class="box-tc2">
-							<a href="javascript:;" onclick="return false;" title="关闭" class="box-close"></a><span class="box-title"> </span></div>
-					</div>
-					<div class="box-tr"></div>
-				</div>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;background:#fff;">
-					<tbody>
-						<tr>
-							<td class="box-cl"></td>
-							<td class="box-cc">
-								<div class="box-content" style="height: 600px;">
-									<div id="visitorRedirect" class="clearfix"></div>
-									<div class="login-link">继续访问即代表您已同意<a href="https://www.vmall.com/help/faq-778.html" target="_blank">华为商城服务协议</a>和<a href="https://www.vmall.com/help/faq-2635.html" target="_blank">华为隐私政策</a></div>
-								</div>
-								<div class="box-button" style="display: none;"> <a class="box-cancel" href="javascript:;"><span>取消</span></a> <a class="box-ok" href="javascript:;"><span>确定</span></a> </div>
-							</td>
-							<td class="box-cr"></td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="box-bottom">
-					<div class="box-bl"></div>
-					<div class="box-bc"></div>
-					<div class="box-br"></div>
-				</div>
-			</div>
-		</div>-->
-
-
-
 
 	</body>
 </html>

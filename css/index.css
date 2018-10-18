@@ -13,6 +13,33 @@ body{ margin:0 auto;color: #5c5c5c;}
     color: #FFF;
     overflow: hidden;
 }
+/*主页选项卡*/
+#naver-hidden {
+	z-index: 500;
+    height: 259px;
+    position: absolute;
+    left: 0;
+    top: 190px;
+    width: 1200px;
+    border-top: 1px solid #ebebeb;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+    box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+}
+#naver-hidden li a{
+	display: block;
+	width: 120px;
+	height: 206px;
+	float: left;
+}
+
+#naver li:hover a{
+	color: #CA151E;
+}
+
+
+
 
 .sec1 .layout li{float: left;padding: 0 8px;position: relative;line-height: 30px;}
 .shortcut{    content: "";
