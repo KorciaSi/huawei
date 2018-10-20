@@ -13,32 +13,6 @@ body{ margin:0 auto;color: #5c5c5c;}
     color: #FFF;
     overflow: hidden;
 }
-/*主页选项卡*/
-#naver-hidden {
-	z-index: 500;
-    height: 259px;
-    position: absolute;
-    left: 0;
-    top: 190px;
-    width: 1200px;
-    border-top: 1px solid #ebebeb;
-    background: #fff;
-    -webkit-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
-    -moz-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
-    box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
-}
-#naver-hidden li a{
-	display: block;
-	width: 120px;
-	height: 206px;
-	float: left;
-}
-
-#naver li:hover a{
-	color: #CA151E;
-}
-
-
 
 
 .sec1 .layout li{float: left;padding: 0 8px;position: relative;line-height: 30px;}
@@ -164,24 +138,78 @@ body{ margin:0 auto;color: #5c5c5c;}
     margin: 0 16px;
     margin-top: 15px;
 }
-.naver {
+#naver {
     float: left;
     max-width: 560px;
     height: 40px;
     overflow: hidden;
     margin-top: 5px;
 }
-.naver li {
+#naver li {
     float: left;
     margin-right: 20px;
 }
-.naver a {
+#naver a {
     font-size: 16px;
     color: #3a3a3a;
     position: relative;
     line-height: 40px;
     display: block;
 }
+/*主页选项卡*/
+#naver-hidden {
+	z-index: 500;
+    height: 259px;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 1200px;
+    border-top: 1px solid #ebebeb;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+    -moz-box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+    box-shadow: 0 3px 3px 0 rgba(121,121,121,0.26);
+    display: none;
+}
+
+#naver-hidden a{
+	display: block;
+	width: 120px;
+	height: 206px;
+	float: left;
+	margin: 0;
+    margin-right: 54px;
+    margin-bottom: 18px;
+}
+#naver-hidden img{
+	width: 120px;
+    height: 120px;
+    margin: 23px auto 0;
+}
+#naver-hidden .p1 {
+    width: 120px;
+    padding: 0;
+    height: 42px;
+    text-align: center;
+}
+#naver-hidden .p2{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 20px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #cc0e11;
+    text-align: center;
+}
+#naver li:hover a{
+	color: #CA151E;
+}
+#naver li:hover #naver-hidden{display: block;}
+
+
+
+
 .right, .right-area {
     float: right;
 }
