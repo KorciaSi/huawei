@@ -47,7 +47,7 @@ function jsonp(url,call){
     })
 }
 
-
+//轮播图
         function Banner(){}
         $.extend(Banner.prototype,{
             // 写法是兼容的;
