@@ -49,14 +49,14 @@ gulp.task("default",["watch","connect"]);
 // script 转存指令;
 
 gulp.task("script", ()=>{
-    return gulp.src(["script/app/*.js","script/module/*.js","script/libs/*.js","!script/libs/jquery.js"])
+    return gulp.src(["js/*.js"])
     .pipe(concat("mian.js"))
     .pipe(uglify())
-    .pipe(gulp.dest("dist/script"));
+    .pipe(gulp.dest("dist/js"));
 })
 
 gulp.task("css", ()=>{
-    return gulp.src(["styles/*.css"])
+    return gulp.src(["css/*.css"])
            .pipe(cleanCss())
            .pipe(gulp.dest("dist/css"))
 })
