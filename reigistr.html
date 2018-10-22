@@ -205,12 +205,12 @@
                 oEmTips.innerHTML = "邮箱不能为空";
                 return 0;
             }
-            var url = "http://localhost/jd/register.2.php";
+            var url = "http://localhost/huawei/register.2.php";
             ajaxPost(url,`username=${oUsr.value}&password=${oPwd.value}`)
             .then(function(res){
                 if(res){
                 	console.log(res)
-                	location.href = "http://localhost/jd/jdlogin.html"
+                	location.href = "http://localhost/huawei/login.html"
                 }
             })
         }
