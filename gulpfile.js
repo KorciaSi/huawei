@@ -51,7 +51,6 @@ gulp.task("default",["watch","connect"]);
 gulp.task("script", ()=>{
     return gulp.src(["js/*.js"])
     .pipe(concat("mian.js"))
-    .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
 })
 

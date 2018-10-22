@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/registr.css"/>
+	<body>
+		<header>
+			<div class="header_inner">
+				
+				<h2 class="wel_regist">欢迎注册</h2>
+				<a href="http://127.0.0.1:8020/huawei/login.html">请登录></a>
+				<span>已有账号？</span>
+			</div>
+			
+		</header>
+		<div class="register_bd">
+			<div class="register_bd_inner">
+				<div class="register_input">
+					<span>用 &nbsp;&nbsp;户 &nbsp;&nbsp;名</span>
+					<input type="text" id="usrname" name="regName" class="field" autocomplete="off" maxlength="20" placeholder="您的账户名和登录名" default="<i class='i-def'></i>支持中文、英文、数字、“-”、“_”的组合，4-20个字符" aria-required="true">
+				</div>
+				<div class="input_tip" id="tip1"></div>
+				<div class="register_input">
+					<span>设 置 密 码</span>
+					<input autocomplete="off" type="password" name="pwd" id="password" class="field" maxlength="20" placeholder="建议使用两种或两种以上字符组合" default="<i class='i-def'></i>建议使用字母、数字和符号两种及以上的组合，6-20个字符">
+				</div>
+				<div class="input_tip" id="tip2"></div>
+				<div class="register_input">
+					<span>确 认 密 码</span>
+					<input type="password" name="pwdRepeat" id="password_again" class="field" placeholder="请再次输入密码" default="<i class='i-def'></i>请再次输入密码" aria-required="true" aria-invalid="true" aria-describedby="form-equalTopwd-error">
+				</div>
+				<div class="input_tip" id="tip3"></div>
+				<div class="register_input">
+					<span>邮 箱 验 证</span>
+					<input type="text" name="email" id="form-email" class="field" autocomplete="off" maxlength="50" placeholder="请输入邮箱" default="<i class='i-def'></i>验证完成后，你可以使用该邮箱登录">
+				</div>
+				<div class="input_tip" id="tip4"></div>
+				<div id="reigister">立即注册</div>
+			</div>
+		</div>
+		
+		
+		<script src="js/ajax.js"></script>
+    <script>
+        // 1.用户名
+        // 支持中文、英文 、 数字、 - 、 _ , 4 ~ 20 位字符;
+        
+        var oUsr = document.getElementById("usrname");
+        var oTips = document.getElementById("tip1");        
+        oUsr.onfocus = function(){
+            var sUsr = oUsr.value;
+            if(sUsr==""){
+                oTips.innerHTML = "支持中文、英文 、 数字、 - 、 _ , 4 ~ 20 位字符"
+            }            
+        } 
+        oUsr.onblur = function(){
+            var sUsr = oUsr.value;
+            var regUsr = /^[\u4e00-\u9fa5a-z0-9\-_]{4,20}$/;
+            var numreg = /^\d+$/;
+            var elsreg = /^[\u4e00-\u9fa5a-z0-9\-_]/;
+            // if( sUsr == ""){
+            //     oTips.innerHTML ='不能为空';
+            //     return 0;
+            // }
+            if(numreg.test(sUsr)){
+                oTips.innerHTML ='不能为纯数字';
+                return 0;
+            } 
+            if(regUsr.test(sUsr)){
+                
+                oTips.innerHTML = "";
+            }else{
+                if(!elsreg.test(sUsr)){
+                    oTips.innerHTML ='格式错误，仅支持汉字、字母、数字、“-”、“_”的组合'
+                    return 0;
+                    }
+                if(sUsr.length<4 || sUsr.length>20){
+                    oTips.innerHTML ='长度在4-20之间';
+                    return 0;
+                }
+            }
+        }
+
+        // 2. 密码 
+        // 长度只能在6-20个字符之间任意字符
+        var oPwd = document.getElementById("password");
+        var oPwdTips = document.getElementById("tip2")
+        oPwd.onfocus = function(){
+            var sPwd = oPwd.value;
+            if(sPwd ==""){
+                oPwdTips.innerHTML = "建议使用字母、数字和符号两种及以上的组合，6-20个字符"
+            }            
+        }
+        oPwd.onblur = function(){
+            var sPwd = oPwd.value;
+            
+            if(sPwd.length<6 || sPwd.length>20){
+                oPwdTips.innerHTML = "密码长度只能在6-20个字符之间";
+                return 0;
+            }
+            
+        }
+        oPwd.oninput = function(){
+            var sPwd = oPwd.value;
+            var regNumber = /\d/;
+            var regWord = /[a-zA-Z]/;
+            var regSmbol = /[^\da-zA-Z]/;
+            var rate = 0;
+            if(regNumber.test(sPwd)){
+                rate ++;
+                //oPwdTips.innerHTML = "弱!有被盗风险,建议使用字母、数字和符号两种及以上组合" 
+            }
+            if(regWord.test(sPwd)){
+                rate ++;
+            }
+            if(regSmbol.test(sPwd)){
+                rate ++;
+            }
+//          console.log(rate);
+            switch(rate){
+                case 1 :
+                oPwdTips.innerHTML = "弱!有被盗风险,建议使用字母、数字和符号两种及以上组合" ;
+                oPwdTips.style.color = "red"
+                break;
+                case 2 :
+                oPwdTips.innerHTML = "中!安全强度适中，可以使用三种以上的组合来提高安全强度" ;
+                oPwdTips.style.color = "yellow"
+                break;
+                case 3 :
+                oPwdTips.innerHTML = "强!你的密码很安全" ;
+                oPwdTips.style.color = "green"
+                break;
+            }          
+        }
+        // 3. 再次输入密码        
+        var oSaPwd = document.getElementById("password_again");
+        //console.log(oSaPwd);
+        var oTwiceTips = document.getElementById("tip3");
+        oSaPwd.onfocus =  function(){
+            var sSaPwd = oSaPwd.value;
+            if(sSaPwd == ""){
+                oTwiceTips.innerHTML = "请再次输入密码";
+            }            
+        }
+        oSaPwd.onblur = function(){
+            var sPwd = oPwd.value;
+            //console.log(sPwd);
+            var sSaPwd = oSaPwd.value;
+            //console.log(sSaPwd);
+            if(sSaPwd !=""){
+                if(sPwd == sSaPwd){
+                    oTwiceTips.innerHTML = "";
+                    oTwiceTips.style.color = "orange";
+                }else{
+                    oTwiceTips.innerHTML = "两次输入的密码不一致";
+                    oTwiceTips.style.color = "orange";
+                }
+            }            
+        }
+        //4. 邮箱验证
+        // 只能以数字字母开头 数字字母下划线 6 ~ 20位;
+        // 在正则之中有意义的字符，如果想使用字符本身，那么需要 \ 转义; 
+        var oEmial = document.getElementById("form-email");
+        var oEmTips = document.getElementById("tip4");        
+        oEmial.onfocus = function(){
+            var sEmial = oEmial.value;
+            if(sEmial == ""){
+                oEmTips.innerHTML = "验证完成后，你可以使用该邮箱登陆";
+            }            
+        }
+        oEmial.onblur = function(){
+            var reg = /^[0-9a-z][0-9a-z_]{5,19}@[0-9a-z]{2,6}\.[a-z]{2,5}$/
+            var sEmial = oEmial.value;
+            if(sEmial!=""){
+                if(reg.test(sEmial)){
+                    oEmTips.innerHTML = "";
+                }else{
+                    oEmTips.innerHTML = "邮箱格式错误";
+                    oEmTips.style.color = "orange";
+                }
+            }            
+        }        
+        var oBtn = document.getElementById("reigister");
+//      console.log(oBtn);
+        oBtn.onclick = function(){
+            var sUsr = oUsr.value;
+            var sPwd = oPwd.value;
+            var sSaPwd = oSaPwd.value;
+            var sEmial = oEmial.value;
+            if(sUsr==""){
+                oTips.innerHTML ='用户名不能为空';
+                return 0;
+            }
+            if(sPwd==""){
+                oPwdTips.innerHTML = "密码不能为空";
+                return 0;
+            }
+            if(sSaPwd==""){
+                oTwiceTips.innerHTML = "密码不能为空";
+                return 0;
+            }
+            if(sEmial ==""){
+                oEmTips.innerHTML = "邮箱不能为空";
+                return 0;
+            }
+            var url = "http://localhost/huawei/register.2.php";
+            ajaxPost(url,`username=${oUsr.value}&password=${oPwd.value}`)
+            .then(function(res){
+                if(res){
+                	console.log(res)
+                	location.href = "http://localhost/huawei/login.html"
+                }
+            })
+        }
+    </script>
+	</body>
+</html>
